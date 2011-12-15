@@ -3,6 +3,7 @@ runtime bundle/pathogen/autoload/pathogen.vim
 filetype off
 call pathogen#infect()
 set ofu=syntaxcomplete#Complete
+set completeopt=longest,menuone
 
 " REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
 syntax on
