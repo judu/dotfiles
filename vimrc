@@ -5,6 +5,7 @@ call pathogen#infect()
 set ofu=syntaxcomplete#Complete
 
 " REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
+syntax on
 filetype plugin indent on
 filetype on
 set hidden
@@ -22,12 +23,12 @@ set t_Co=256
 " turn on this option as well
 set background=dark
 
+let g:molokai_original = 1
 " IMPORTANT: grep will sometimes skip displaying the file name if you
 " search in a singe file. This will confuse Latex-Suite. Set your grep
 " program to always generate a file-name.
 set grepprg=grep\ -nH\ $*
 
-syntax on
 
 source ~/.vimrc.bepo
 
@@ -151,15 +152,15 @@ set synmaxcol=2048
 set history=100
 
 " Next is for Latex
-"let g:Tex_DefaultTargetFormat='pdf'
-"let g:Tex_ViewRule_pdf='evince'
-"let g:Tex_CompileRule_pdf='xelatex --interaction=nonstopmode $*'
-"let g:tex_flavor='latex'
-"let g:Tex_MultipleCompileFormats='pdf,dvi'
+let g:Tex_DefaultTargetFormat='pdf'
+let g:Tex_ViewRule_pdf='evince'
+let g:Tex_CompileRule_pdf='xelatex --interaction=nonstopmode $*'
+let g:tex_flavor='latex'
+let g:Tex_MultipleCompileFormats='pdf,dvi'
 " TIP: if you write your \label's as \label{fig:something}, then if you
 " type in \ref{fig: and press <C-n> you will automatically cycle through
 " all the figure labels. Very useful!
-"set iskeyword+=:
+set iskeyword+=:
 
 
 " Set the indentation right
@@ -168,4 +169,7 @@ set sts=2
 " set the right margin to 80 characters
 set wm=80
 set tw=80
-colorscheme desert
+colorscheme molokai
+
+" Let's change the hlsearch color
+hi Search          ctermfg=255 ctermbg=0 cterm=bold
