@@ -1,5 +1,7 @@
-filetype off
+runtime bundle/pathogen/autoload/pathogen.vim
 
+filetype off
+call pathogen#infect()
 set ofu=syntaxcomplete#Complete
 
 " REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
@@ -166,5 +168,4 @@ set sts=2
 " set the right margin to 80 characters
 set wm=80
 set tw=80
-"color wombat
-colorscheme molokai
+colorscheme desert
