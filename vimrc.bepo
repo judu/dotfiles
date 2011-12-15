@@ -70,9 +70,11 @@ noremap g" g0
 " ————————————
 noremap « <
 noremap » >
-" En insertion, on échange <> et «»
-" —————————————————————————————————
-"inoremap » >
-"inoremap « <
-"inoremap > »
-"inoremap < «
+
+" let's 0 and $ with è and à
+noremap è $
+noremap à ^
+noremap À 0
+
+noremap <BS> <C-U>
+noremap <Space> <C-D>

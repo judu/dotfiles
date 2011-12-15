@@ -17,11 +17,22 @@ else
 
   bindkey -a 'b' backward-word
   bindkey -a 'é' forward-word
-  bindkey -a 'c' backward-char
-  bindkey -a 'r' forward-char
   bindkey '[3~' delete-char
   bindkey '[4~' end-of-line
   bindkey '[1~' beginning-of-line
+  # On remappe pour le bépo
+  bindkey -a c vi-backward-char
+  bindkey -a r vi-forward-char
+  bindkey -a t vi-down-line-or-history
+  bindkey -a s vi-up-line-or-history
+  bindkey -a $ vi-end-of-line
+  bindkey -a 0 vi-digit-or-beginning-of-line 
+  bindkey -a h vi-change
+  bindkey -a H vi-change-eol
+  bindkey -a dd vi-change-whole-line
+  bindkey -a l vi-replace-chars
+  bindkey -a L vi-replace
+  bindkey -a k vi-substitute
 
   # On remet le ^r pour l'historique
   bindkey -M viins '^r' history-incremental-search-backward
