@@ -7,3 +7,6 @@
 [submodule "vim/bundle/molokai"]
 	path = vim/bundle/molokai
 	url = git://github.com/vim-scripts/molokai.git
+[submodule "vim/bundle/zencoding"]
+	path = vim/bundle/zencoding
+	url = git://github.com/mattn/zencoding-vim.git
