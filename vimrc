@@ -70,6 +70,8 @@ nmap  ,cd :lcd %:h<CR>
 " (yet) exist
 nmap  ,md :!mkdir -p %:p:h<CR>
 
+"Command-T mapping
+noremap <leader>f :CommandTFlush<cr>\|:CommandT<cr>
 
 " Move the cursor to the window left of the current one
 nmap <silent> ,c :wincmd h<cr>
