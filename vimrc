@@ -70,8 +70,9 @@ nmap  ,cd :lcd %:h<CR>
 " (yet) exist
 nmap  ,md :!mkdir -p %:p:h<CR>
 
-"Command-T mapping
+"Command-T mappings
 noremap <leader>f :CommandTFlush<cr>\|:CommandT<cr>
+noremap <leader>h :CommandTFlush<cr>\|:CommandTBuffer<cr>
 
 " Move the cursor to the window left of the current one
 nmap <silent> ,c :wincmd h<cr>
@@ -98,7 +99,7 @@ nmap <silent> ,cc :wincmd h<cr>:close<cr>
 nmap <silent> ,cr :wincmd l<cr>:close<cr>
 
 " Close the current window
-nmap <silent> ,cc :close<cr>
+nmap <silent> ,cC :close<cr>
 
 " Move the current window to the right of the main Vim window
 nmap <silent> ,mr <C-W>L
@@ -111,6 +112,11 @@ nmap <silent> ,mc <C-W>H
 
 " Move the current window to the bottom of the main Vim window
 nmap <silent> ,mt <C-W>J
+
+" Get the current file's directory faster.
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+
+map <leader>e :edit %%
 
 " command line size N
 set ch=1
@@ -125,7 +131,7 @@ set mousehide
 " silly about it :)  The GUI is fantastic, but it's fantastic for
 " its fonts and its colours, not for its toolbar and its menus -
 " those just steal screen real estate
-"set guioptions=ac
+set guioptions=ac
 
 " This is the timeout used while waiting for user input on a
 " multi-keyed macro or while just sitting and waiting for another
@@ -167,8 +173,7 @@ set iskeyword+=:
 
 
 " Set the indentation right
-set sw=2
-set sts=2
+set sw=3 ts=3 sts=0 noexpandtab
 " set the right margin to 80 characters
 set wm=80
 set tw=80

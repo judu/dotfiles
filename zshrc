@@ -53,6 +53,5 @@ else
   #  ln -s /tmp/.esd /tmp/.esd-${UID}
   #fi
   #
-
   export PATH=$PATH:~/.local/bin
 fi
