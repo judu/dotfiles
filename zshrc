@@ -45,6 +45,10 @@ else
   alias mmv='noglob zmv -W'
   alias tree='tree -uh'
 
+  c-c () {
+	  cd ~/projets/clever-cloud/$1
+  }
+
   export AKKA_HOME=/opt/akka-actors-1.1.2
 
 
@@ -54,4 +58,6 @@ else
   #fi
   #
   export PATH=$PATH:~/.local/bin
+
+  export M2_HOME=/usr/share/maven-bin-3.0
 fi

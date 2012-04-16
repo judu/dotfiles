@@ -171,6 +171,13 @@ let g:Tex_MultipleCompileFormats='pdf,dvi'
 " all the figure labels. Very useful!
 set iskeyword+=:
 
+"augroup vimrcEx
+"	autocmd!
+"	autocmd BufReadPost *
+"		\ if line("'\"") > 0 && line("'\"") <= line("$") |
+"		\ exe "normal g`\"" |
+"		\ endif
+"augroup END
 
 " Set the indentation right
 set sw=3 ts=3 sts=0 noexpandtab

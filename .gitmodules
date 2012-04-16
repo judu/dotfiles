@@ -13,3 +13,6 @@
 [submodule "vim/bundle/Command-T"]
 	path = vim/bundle/Command-T
 	url = git://github.com/vim-scripts/Command-T.git
+[submodule "vim/bundle/html5"]
+	path = vim/bundle/html5
+	url = github:briangershon/html5.vim
