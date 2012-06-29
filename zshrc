@@ -44,6 +44,7 @@ else
   alias g='git'
   alias mmv='noglob zmv -W'
   alias tree='tree -uh'
+  alias showbig='du -sh * | grep -e "^[0-9,]\+G"'
 
   c-c () {
 	  cd ~/projets/clever-cloud/$1
