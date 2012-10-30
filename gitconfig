@@ -1,0 +1,25 @@
+[user]
+	email = julien.durillon@gmail.com
+	name = Julien Durillon
+
+[alias]
+	co = commit
+	ci = commit -am
+	cm = commit -m
+	cc = checkout
+	st = status --short
+
+[color]
+	ui = auto
+
+[url "git+ssh://git@git.clever-cloud.com/"]
+	insteadOf = clever-cloud:
+
+[url "git+ssh://git@ars.clever-cloud.com/"]
+	insteadOf = clever-ars:
+
+[url "git+ssh://git@github.com/"]
+	pushInsteadOf = github:
+
+[url "git://github.com/"]
+	insteadOf = github:
