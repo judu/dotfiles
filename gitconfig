@@ -3,6 +3,7 @@
 	name = Julien Durillon
 
 [alias]
+	a  = add
 	co = commit
 	ci = commit -am
 	cm = commit -m
@@ -12,10 +13,10 @@
 [color]
 	ui = auto
 
-[url "git+ssh://git@git.clever-cloud.com/"]
+[url "git+ssh://gitolite@git.clever-cloud.com/"]
 	insteadOf = clever-cloud:
 
-[url "git+ssh://git@ars.clever-cloud.com/"]
+[url "git+ssh://gitolite@ars.clever-cloud.com/"]
 	insteadOf = clever-ars:
 
 [url "git+ssh://git@github.com/"]
