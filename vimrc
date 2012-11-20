@@ -1,11 +1,17 @@
-runtime bundle/pathogen/autoload/pathogen.vim
-
 filetype off
-call pathogen#infect()
+set rtp+=~/.vim/bundle/vundle/ 
+call vundle#rc() 
+Bundle 'gmarik/vundle'
+Bundle 'vim-scripts/Command-T'
+Bundle 'briangershon/html5'
+Bundle 'matchit'
+Bundle 'vim-scripts/molokai'
+Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
+Bundle 'mattn/zencoding-vim'
+
 set ofu=syntaxcomplete#Complete
 set completeopt=longest,menuone
 
-" REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
 syntax on
 filetype plugin indent on
 filetype on
@@ -113,6 +119,9 @@ nmap <silent> ,mc <C-W>H
 " Move the current window to the bottom of the main Vim window
 nmap <silent> ,mt <C-W>J
 
+" map à to = (like in gg=G)
+noremap <silent> à =
+
 " Get the current file's directory faster.
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
@@ -163,7 +172,7 @@ set history=100
 " Next is for Latex
 let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_ViewRule_pdf='evince'
-let g:Tex_CompileRule_pdf='xelatex --interaction=nonstopmode $*'
+let g:Tex_CompileRule_pdf='pdflatex --interaction=nonstopmode $*'
 let g:tex_flavor='latex'
 let g:Tex_MultipleCompileFormats='pdf,dvi'
 " TIP: if you write your \label's as \label{fig:something}, then if you
