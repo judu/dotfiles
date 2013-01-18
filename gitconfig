@@ -24,3 +24,7 @@
 
 [url "git://github.com/"]
 	insteadOf = github:
+[core]
+	excludesfile = /home/judu/.gitignore_global
+[push]
+	default = simple
