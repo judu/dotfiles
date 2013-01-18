@@ -1,19 +1,26 @@
+" Vundle part
+set nocompatible
 filetype off
+let g:vundle_default_git_proto='git'
 set rtp+=~/.vim/bundle/vundle/ 
 call vundle#rc() 
 Bundle 'gmarik/vundle'
 Bundle 'vim-scripts/Command-T'
-Bundle 'briangershon/html5'
-Bundle 'matchit'
+Bundle 'briangershon/html5.vim'
 Bundle 'vim-scripts/molokai'
 Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 Bundle 'mattn/zencoding-vim'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'plasticboy/vim-markdown'
+Bundle 'rosstimson/scala-vim-support'
+
+filetype plugin indent on
+" End Vundle part
 
 set ofu=syntaxcomplete#Complete
 set completeopt=longest,menuone
 
 syntax on
-filetype plugin indent on
 filetype on
 set hidden
 set lazyredraw
@@ -24,6 +31,7 @@ set noswapfile
 
 " Color scheme
 set t_Co=256
+let g:solarized_termcolors=256      " use solarized 256 fallback
 
 
 " If using a dark background within the editing area and syntax highlighting
@@ -193,7 +201,12 @@ set sw=3 ts=3 sts=0 noexpandtab
 " set the right margin to 80 characters
 set wm=80
 set tw=80
-colorscheme molokai
+let g:solarized_contrast='high'
+let g:solarized_termtrans=1
 
+colorscheme solarized
 " Let's change the hlsearch color
-hi Search          ctermfg=255 ctermbg=0 cterm=bold
+" hi Search          ctermfg=255 ctermbg=0 cterm=bold
+hi Normal           ctermbg=NONE
+
+
