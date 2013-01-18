@@ -83,11 +83,14 @@ else
 
 	autoload -U zmv
 
+	alias ls='ls --color=auto'
+	alias ll='ls -ogh'
 	alias ssh='autossh -M 0'
 	alias g='git'
 	alias mmv='noglob zmv -W'
-	alias tree='tree -uh'
+	#alias tree='tree -uh'
 	alias showbig='du -sh * | grep -e "^[0-9,]\+G"'
+	alias grep='grep --color=auto'
 
 	c-c () {
 		cd ~/projets/clever-cloud/$1
@@ -107,4 +110,7 @@ else
 	unset sh shopts
 
 	RPROMPT="%{${fg[blue]}%}[%{${fg[red]}%}%?%{${fg[blue]}%}][%{${fg[red]}%}%*%{${fg[blue]}%} - %{${fg[red]}%}%D{%d/%m/%Y}%{${fg[blue]}%}]%{${reset_color}%}"
+
+	. /home/judu/.nvm/nvm.sh
+	nvm use 0.9
 fi
