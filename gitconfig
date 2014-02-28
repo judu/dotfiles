@@ -5,8 +5,9 @@
 [alias]
 	a  = add
 	co = commit
-	ci = commit -am
 	cm = commit -m
+	ci = commit -am
+	ca = commit --amend
 	cc = checkout
 	st = status --short
 
@@ -21,6 +22,9 @@
 
 [url "git+ssh://git@github.com/"]
 	pushInsteadOf = github:
+
+[url "git+ssh://git@push.clever-cloud.com/"]
+	insteadOf = cleverapps:
 
 [url "git://github.com/"]
 	insteadOf = github:

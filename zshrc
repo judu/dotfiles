@@ -1,5 +1,5 @@
 if [ -z "${TMUX:+x}" ]; then
-	tmux -u2 a || tmux -u2
+	tmux -u2 a -t default || tmux -u2
 else
 	[ -f /etc/zsh/zprofile ] && . /etc/zsh/zprofile
 
@@ -35,7 +35,7 @@ else
 		PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${ROOTPATH}"
 		PROMPT="%{${fg_bold[red]}%}${PROMPT}"
 	else
-		PATH="/usr/local/bin:/usr/bin:/bin:${PATH}"
+		PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/texlive/2012/bin/x86_64-linux:${PATH}"
 		PROMPT="%{${fg_bold[green]}%}%n@${PROMPT}"
 	fi
 
@@ -69,7 +69,7 @@ else
 	bindkey -a t vi-down-line-or-history
 	bindkey -a s vi-up-line-or-history
 	bindkey -a $ vi-end-of-line
-	bindkey -a 0 vi-digit-or-beginning-of-line 
+	bindkey -a 0 vi-digit-or-beginning-of-line
 	bindkey -a h vi-change
 	bindkey -a H vi-change-eol
 	bindkey -a dd vi-change-whole-line
@@ -85,12 +85,13 @@ else
 
 	alias ls='ls --color=auto'
 	alias ll='ls -ogh'
-	alias ssh='autossh -M 0'
+	alias ssh='TERM=xterm autossh -M 0'
 	alias g='git'
 	alias mmv='noglob zmv -W'
 	#alias tree='tree -uh'
 	alias showbig='du -sh * | grep -e "^[0-9,]\+G"'
 	alias grep='grep --color=auto'
+	alias userctl='systemctl --user'
 
 	c-c () {
 		cd ~/projets/clever-cloud/$1

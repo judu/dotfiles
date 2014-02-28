@@ -2,8 +2,8 @@
 set nocompatible
 filetype off
 let g:vundle_default_git_proto='git'
-set rtp+=~/.vim/bundle/vundle/ 
-call vundle#rc() 
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'vim-scripts/Command-T'
 Bundle 'briangershon/html5.vim'
@@ -28,6 +28,9 @@ set showmode
 set nobackup
 set nowritebackup
 set noswapfile
+set incsearch
+set autoread
+set hlsearch
 
 " Color scheme
 set t_Co=256
@@ -135,6 +138,26 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
 map <leader>e :edit %%
 
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+
+nnoremap ,rn :call NumberToggle()<cr>
+
+function! ToggleStatusLine()
+	if &laststatus == 2
+		set laststatus=0
+	else
+		set laststatus=2
+	endif
+endfunc
+
+nmap <expr> <silent> ,st ToggleStatusLine()
+
 " command line size N
 set ch=1
 
@@ -186,7 +209,7 @@ let g:Tex_MultipleCompileFormats='pdf,dvi'
 " TIP: if you write your \label's as \label{fig:something}, then if you
 " type in \ref{fig: and press <C-n> you will automatically cycle through
 " all the figure labels. Very useful!
-set iskeyword+=:
+" set iskeyword+=:
 
 "augroup vimrcEx
 "	autocmd!
@@ -199,14 +222,12 @@ set iskeyword+=:
 " Set the indentation right
 set sw=3 ts=3 sts=0 noexpandtab
 " set the right margin to 80 characters
-set wm=80
-set tw=80
+set tw=72
 let g:solarized_contrast='high'
 let g:solarized_termtrans=1
 
 colorscheme solarized
-" Let's change the hlsearch color
-" hi Search          ctermfg=255 ctermbg=0 cterm=bold
-hi Normal           ctermbg=NONE
 
-
+highlight RedundantSpaces ctermbg=124 guibg=red
+" match RedundantSpaces /\s\+$\| \+\ze\t\|\t/
+match RedundantSpaces /\s\+$/
