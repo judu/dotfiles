@@ -12,6 +12,7 @@ else
 	zstyle ':completion:*' menu select=long
 	zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 	zstyle ':completion:*' substitute 1
+	zstyle :compinstall filename '/home/judu/.zshrc'
 	autoload -Uz compinit colors
 	compinit
 	colors
