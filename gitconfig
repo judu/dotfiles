@@ -14,7 +14,10 @@
 [color]
 	ui = auto
 
-[url "git+ssh://gitolite@git.clever-cloud.com/"]
+[log]
+	decorate = full
+
+[url "git+ssh://git@gitlab.clever-cloud.com/"]
 	insteadOf = clever-cloud:
 
 [url "git+ssh://gitolite@ars.clever-cloud.com/"]
@@ -31,4 +34,4 @@
 [core]
 	excludesfile = /home/judu/.gitignore_global
 [push]
-	default = simple
+	default = upstream
