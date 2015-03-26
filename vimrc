@@ -3,19 +3,29 @@ set nocompatible
 filetype off
 let g:vundle_default_git_proto='git'
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
-Bundle 'vim-scripts/Command-T'
-Bundle 'briangershon/html5.vim'
-Bundle 'vim-scripts/molokai'
-Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
-Bundle 'mattn/zencoding-vim'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'plasticboy/vim-markdown'
-Bundle 'rosstimson/scala-vim-support'
+call vundle#begin()
+Plugin 'gmarik/vundle'
+Plugin 'vim-scripts/Command-T'
+Plugin 'briangershon/html5.vim'
+Plugin 'vim-scripts/molokai'
+Plugin 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
+Plugin 'mattn/emmet-vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'edsono/vim-matchit'
+Plugin 'vim-scripts/gnupg.vim'
+Plugin 'bling/vim-airline'
+Plugin 'tpope/vim-fugitive'
+Plugin 'MarcWeber/vim-addon-local-vimrc'
+Plugin 'scrooloose/syntastic'
+Plugin 'bitc/vim-hdevtools'
 
+call vundle#end()
 filetype plugin indent on
 " End Vundle part
+
+
+let g:local_vimrc = {'names':['.lvimrc'],'hash_fun':'LVRHashOfFile'}
 
 set ofu=syntaxcomplete#Complete
 set completeopt=longest,menuone
@@ -31,6 +41,9 @@ set noswapfile
 set incsearch
 set autoread
 set hlsearch
+
+" Command-T plugin ignore files.
+set wildignore+=*.class,target,node_modules,bower_components
 
 " Color scheme
 set t_Co=256
@@ -139,24 +152,12 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
 
 function! NumberToggle()
-  if(&relativenumber == 1)
-    set number
-  else
-    set relativenumber
-  endif
+  set invrelativenumber
 endfunc
 
-nnoremap ,rn :call NumberToggle()<cr>
+nnoremap ,rn :set invrelativenumber<cr>
 
-function! ToggleStatusLine()
-	if &laststatus == 2
-		set laststatus=0
-	else
-		set laststatus=2
-	endif
-endfunc
-
-nmap <expr> <silent> ,st ToggleStatusLine()
+set laststatus=2
 
 " command line size N
 set ch=1
@@ -222,12 +223,29 @@ let g:Tex_MultipleCompileFormats='pdf,dvi'
 " Set the indentation right
 set sw=3 ts=3 sts=0 noexpandtab
 " set the right margin to 80 characters
-set tw=72
+set tw=90
+
+" solarized stuff
 let g:solarized_contrast='high'
 let g:solarized_termtrans=1
-
 colorscheme solarized
 
+" airline recommended default config
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='solarized'
+
 highlight RedundantSpaces ctermbg=124 guibg=red
-" match RedundantSpaces /\s\+$\| \+\ze\t\|\t/
 match RedundantSpaces /\s\+$/
+
+highlight UnbreakableSpaces ctermbg=237 guibg=orange
+match UnbreakableSpaces / /
+
+" Disable syntastic for java.
+let g:syntastic_java_checkers = []
+
+" Use Hdevtools with haskell files.
+au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
+au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
+
+" special stuff for markdown.
+autocmd FileType mkd setlocal expandtab| setlocal tabstop=3| setlocal sw=3| setlocal tw=90
