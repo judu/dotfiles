@@ -2,7 +2,7 @@
 set nocompatible
 filetype off
 let g:vundle_default_git_proto='git'
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/vundle'
 Plugin 'vim-scripts/Command-T'
