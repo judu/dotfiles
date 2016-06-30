@@ -2,24 +2,25 @@
 set nocompatible
 filetype off
 let g:vundle_default_git_proto='git'
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/vundle
 call vundle#begin()
 Plugin 'gmarik/vundle'
 Plugin 'vim-scripts/Command-T'
-Plugin 'briangershon/html5.vim'
-Plugin 'vim-scripts/molokai'
 Plugin 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 Plugin 'mattn/emmet-vim'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'edsono/vim-matchit'
 Plugin 'vim-scripts/gnupg.vim'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
 Plugin 'MarcWeber/vim-addon-local-vimrc'
 Plugin 'scrooloose/syntastic'
-Plugin 'bitc/vim-hdevtools'
-
+Plugin 'gre/play2vim'
+Plugin 'wting/rust.vim'
+Plugin 'derekwyatt/vim-scala'
 call vundle#end()
 filetype plugin indent on
 " End Vundle part
@@ -143,9 +144,6 @@ nmap <silent> ,mc <C-W>H
 " Move the current window to the bottom of the main Vim window
 nmap <silent> ,mt <C-W>J
 
-" map à to = (like in gg=G)
-noremap <silent> à =
-
 " Get the current file's directory faster.
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
@@ -194,7 +192,7 @@ set guioptions=ac
 set timeoutlen=500
 
 " These commands open folds
-set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
+set foldopen=block,jump,mark,percent,quickfix,search,tag,undo
 
 " Syntax coloring lines that are too long just slows down the world
 set synmaxcol=2048
@@ -221,7 +219,7 @@ let g:Tex_MultipleCompileFormats='pdf,dvi'
 "augroup END
 
 " Set the indentation right
-set sw=3 ts=3 sts=0 noexpandtab
+set sw=3 ts=3 sts=0 expandtab
 " set the right margin to 80 characters
 set tw=90
 
@@ -230,22 +228,33 @@ let g:solarized_contrast='high'
 let g:solarized_termtrans=1
 colorscheme solarized
 
+
+" Vim markdown stuff
+let g:vim_markdown_folding_style_pythonic = 1
+let g:vim_markdown_folding_level = 2
+
 " airline recommended default config
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='solarized'
-
-highlight RedundantSpaces ctermbg=124 guibg=red
-match RedundantSpaces /\s\+$/
 
 highlight UnbreakableSpaces ctermbg=237 guibg=orange
 match UnbreakableSpaces / /
 
 " Disable syntastic for java.
 let g:syntastic_java_checkers = []
+let g:syntastic_haskell_checkers = []
+
+autocmd FileType play2-routes setlocal tw=0
 
 " Use Hdevtools with haskell files.
-au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
-au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
+" autocmd FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
+" autocmd FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
 
 " special stuff for markdown.
-autocmd FileType mkd setlocal expandtab| setlocal tabstop=3| setlocal sw=3| setlocal tw=90
+autocmd FileType mkd setlocal expandtab setlocal tabstop=3 setlocal sw=3 setlocal tw=90
+
+highlight RedundantSpaces ctermbg=234 guibg=red
+match RedundantSpaces /\s\+$/
+
+" highlight LeadingSpaces ctermbg=234 guibg=red
+" match LeadingSpaces /^\s\+/

@@ -35,3 +35,5 @@
 	excludesfile = /home/judu/.gitignore_global
 [push]
 	default = upstream
+[init]
+	templatedir = ~/.git_template
