@@ -6,7 +6,7 @@ set rtp+=~/.vim/bundle/vundle
 call vundle#begin()
 Plugin 'gmarik/vundle'
 Plugin 'vim-scripts/Command-T'
-Plugin 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
+"Plugin 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 Plugin 'mattn/emmet-vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'godlygeek/tabular'
@@ -21,6 +21,9 @@ Plugin 'scrooloose/syntastic'
 Plugin 'gre/play2vim'
 Plugin 'wting/rust.vim'
 Plugin 'derekwyatt/vim-scala'
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'fatih/vim-go'
+Plugin 'Chiel92/vim-autoformat'
 call vundle#end()
 filetype plugin indent on
 " End Vundle part
@@ -42,6 +45,9 @@ set noswapfile
 set incsearch
 set autoread
 set hlsearch
+set ignorecase
+
+
 
 " Command-T plugin ignore files.
 set wildignore+=*.class,target,node_modules,bower_components
@@ -63,6 +69,8 @@ set grepprg=grep\ -nH\ $*
 
 
 source ~/.vimrc.bepo
+
+nmap <silent> ,tc :set invignorecase<CR>:set ignorecase?<CR>
 
 " Let's make it easy to edit this file (mnemonic for the key sequence is
 " 'e'dit 'v'imrc)
@@ -143,6 +151,8 @@ nmap <silent> ,mc <C-W>H
 
 " Move the current window to the bottom of the main Vim window
 nmap <silent> ,mt <C-W>J
+
+nmap <silent> Q G
 
 " Get the current file's directory faster.
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
@@ -245,6 +255,25 @@ let g:syntastic_java_checkers = []
 let g:syntastic_haskell_checkers = []
 
 autocmd FileType play2-routes setlocal tw=0
+
+autocmd Syntax play2-html let g:syntastic_html_checkers = []
+
+" vim-go stuff
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_fmt_autosave = 1
+" END vim-go stuff
+
+" scalafmt stuff
+noremap <F5> :Autoformat<CR>
+let g:formatdef_scalafmt = "'scalafmt'"
+let g:formatters_scala = ['scalafmt']
+
+
 
 " Use Hdevtools with haskell files.
 " autocmd FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>

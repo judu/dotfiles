@@ -1,15 +1,16 @@
 [user]
 	email = julien.durillon@gmail.com
 	name = Julien Durillon
+	signingkey = 84A5D7209AF64D8CA02A5DC17578A93B2EF2B77D
 
 [alias]
 	a  = add
-	co = commit
-	cm = commit -m
-	ci = commit -am
-	ca = commit --amend
 	cc = checkout
 	st = status --short
+
+[commit]
+   #gpgsign = true
+   signoff = true
 
 [color]
 	ui = auto
@@ -33,6 +34,7 @@
 	insteadOf = github:
 [core]
 	excludesfile = /home/judu/.gitignore_global
+	editor = nvim
 [push]
 	default = upstream
 [init]
